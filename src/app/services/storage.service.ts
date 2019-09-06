@@ -8,7 +8,7 @@ export interface Item {
   modified: number
 }
  
-const ITEMS_KEY = 'my-items';
+const ITEMS_KEY = 'icon-key';
  
 @Injectable({
   providedIn: 'root'

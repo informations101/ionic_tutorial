@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Ionic Storage CRUD
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Icon Code</ion-label>
+    <ion-input [(ngModel)]="newItem.code"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Icon Name</ion-label>
+    <ion-input [(ngModel)]="newItem.name"></ion-input>
+  </ion-item>
+
+  <!-- <ion-item>
+      <ion-label position="floating">Struture Code</ion-label>
+      <ion-input [(ngModel)]="newItem.struture"></ion-input>
+    </ion-item> -->
+
+  <ion-button expand="full" (click)="addItem()">Add Icon!</ion-button>
+
+  <ion-list #mylist>
+
+    <ion-list-header>
+      <ion-label>My Icon items</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let item of items">
+
+      <ion-item>
+        <ion-icon name="{{ item.code }}" slot="start"></ion-icon>
+        <label color="secondary">{{ item.name }}</label>
+        <p slot="end">{{ item.modified | date:'short'}}</p>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="updateItem(item)"><ion-icon name="settings"></ion-icon></ion-item-option>
+        <ion-item-option color="danger" (click)="deleteItem(item)"><ion-icon name="trash"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
