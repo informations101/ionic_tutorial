@@ -35,6 +35,7 @@ export class CrudStoragePage {
     if (!item.id) {
       this.showToast('no data to clear');
     } else {
+      this.showToast('your data\'s clear');
       this.newItem = <Item>{};
     }
   }
@@ -83,12 +84,17 @@ export class CrudStoragePage {
 
   // DELETE
   deleteItem(item: Item) {
-    this.storageService.deleteItem(item.id).then(item => {
-      this.newItem = <Item>{};
-      this.showToast('Item removed!');
-      this.mylist.closeSlidingItems(); // Fix or sliding is stuck afterwards
-      this.loadItems(); // Or splice it from the array directly
-    });
+    if (!item.id) {
+      this.showToast('no data to remove');
+    } else {
+      this.storageService.deleteItem(item.id).then(item => {
+        this.newItem = <Item>{};
+        this.showToast('Item removed!');
+        this.mylist.closeSlidingItems(); // Fix or sliding is stuck afterwards
+        this.loadItems(); // Or splice it from the array directly
+      });
+    }
+    
   }
 
   // Helper
