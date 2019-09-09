@@ -10,12 +10,23 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'crud-storage', loadChildren: './pages/crud-storage/crud-storage.module#CrudStoragePageModule' },
+  {
+      path: 'admin-dashboard',
+      loadChildren: './pages/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',},
+  // { path: 'crud-storage', loadChildren: './pages/crud-storage/crud-storage.module#CrudStoragePageModule' },
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  // {
+  //   path: 'admin-dashboard',
+  //   loadChildren: './pages/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
+  //   canActivate: [AuthGuard],
+  //   data: {
+  //     role: 'ADMIN'
+  //   }
+  // },
   {
-    path: 'admin-dashboard',
-    loadChildren: './pages/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
+    path: 'crud-storage',
+    loadChildren: './pages/crud-storage/crud-storage.module#CrudStoragePageModule',
     canActivate: [AuthGuard],
     data: {
       role: 'ADMIN'

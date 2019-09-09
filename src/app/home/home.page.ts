@@ -10,7 +10,8 @@ export class HomePage implements OnInit {
 
   constructor(private navCtrl: NavController) { }
   crudPage() {
-    this.navCtrl.navigateForward('crud-storage');
+    this.navCtrl.navigateForward('login');
+    // this.navCtrl.navigateForward('crud-storage');
   }
   ngOnInit() {
   }

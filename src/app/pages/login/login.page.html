@@ -3,19 +3,27 @@
     <ion-title>Ionic Role Auth</ion-title>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content padding>
- 
+
   <ion-item>
-    <ion-label position="stacked">Email</ion-label>
-    <ion-input type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email"  [(ngModel)]="user.email"></ion-input>
   </ion-item>
- 
+
   <ion-item>
-    <ion-label position="stacked">Password</ion-label>
-    <ion-input type="password" placeholder="Password" [(ngModel)]="user.pw"></ion-input>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
   </ion-item>
- 
-  <ion-button expand="block" (click)="signIn()">Login</ion-button>
- 
+  <ion-segment>
+    <ion-segment-button checked (click)="signIn()" layout="icon-bottom">
+      <ion-icon name="log-in"></ion-icon>
+      <ion-label>Login</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)='backHome()' layout="icon-bottom">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Item Two</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-content>

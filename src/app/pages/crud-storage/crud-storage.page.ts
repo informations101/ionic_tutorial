@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, ToastController, IonList } from '@ionic/angular';
 import { StorageService, Item } from 'src/app/services/storage.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-crud-storage',
@@ -14,10 +15,13 @@ export class CrudStoragePage {
   newItem: Item = <Item>{};
   @ViewChild('mylist', { static: false }) mylist: IonList;
 
-  constructor(private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
+  constructor(private auth: AuthService, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
     this.plt.ready().then(() => {
       this.loadItems();
     });
+  }
+  signOut() {
+    this.auth.signOut();
   }
 
   // CREATE
@@ -49,6 +53,7 @@ export class CrudStoragePage {
   // READ ONE ITEM
 
   readOneItem(item: Item) {
+
     this.newItem.id = item.id;
     this.newItem.name = item.name;
     this.newItem.code = item.code;
@@ -94,7 +99,7 @@ export class CrudStoragePage {
         this.loadItems(); // Or splice it from the array directly
       });
     }
-    
+
   }
 
   // Helper
