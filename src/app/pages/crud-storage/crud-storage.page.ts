@@ -12,13 +12,11 @@ export class CrudStoragePage {
   items: Item[] = [];
 
   newItem: Item = <Item>{};
-
   @ViewChild('mylist', { static: false }) mylist: IonList;
 
   constructor(private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
     this.plt.ready().then(() => {
       this.loadItems();
-
     });
   }
 
@@ -33,6 +31,13 @@ export class CrudStoragePage {
     });
   }
 
+  clearItem(item: Item) {
+    if (!item.id) {
+      this.showToast('no data to clear');
+    } else {
+      this.newItem = <Item>{};
+    }
+  }
   // READ
   loadItems() {
     this.storageService.getItems().then(items => {
@@ -40,9 +45,33 @@ export class CrudStoragePage {
     });
   }
 
+  // READ ONE ITEM
+
+  readOneItem(item: Item) {
+    this.newItem.id = item.id;
+    this.newItem.name = item.name;
+    this.newItem.code = item.code;
+    this.newItem.struture = item.struture;
+    this.newItem.modified = Date.now();
+  }
+  // UPDATE ONE
+  updateOneItem(item: Item) {
+    if (!item.id) {
+      this.showToast('no data update');
+    } else {
+      item.modified = Date.now();
+      this.storageService.updateItem(item).then(item => {
+        this.newItem = <Item>{};
+        this.showToast('Item updated!');
+        this.loadItems(); // Or update it inside the array directly
+      });
+    }
+
+  }
   // UPDATE
   updateItem(item: Item) {
-    item.title = `UPDATED: ${item.title}`;
+
+    item.name = `UPDATED: ${item.name}`;
     item.modified = Date.now();
 
     this.storageService.updateItem(item).then(item => {
@@ -55,6 +84,7 @@ export class CrudStoragePage {
   // DELETE
   deleteItem(item: Item) {
     this.storageService.deleteItem(item.id).then(item => {
+      this.newItem = <Item>{};
       this.showToast('Item removed!');
       this.mylist.closeSlidingItems(); // Fix or sliding is stuck afterwards
       this.loadItems(); // Or splice it from the array directly
@@ -62,7 +92,7 @@ export class CrudStoragePage {
   }
 
   // Helper
-  async showToast(msg) {
+  async showToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000
