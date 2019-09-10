@@ -15,5 +15,9 @@ export class HomePage implements OnInit {
   }
   ngOnInit() {
   }
+  
+  loadingImage() {
+    console.log('loading me');
+  }
 
 }
