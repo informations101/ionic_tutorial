@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Ionic Role Auth</ion-title>
+    <ion-title>Ionic Auth</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
     <ion-label position="floating">Password</ion-label>
     <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
   </ion-item>
-  <ion-segment>
+  <ion-segment padding>
     <ion-segment-button checked (click)="signIn()" layout="icon-bottom">
       <ion-icon name="log-in"></ion-icon>
       <ion-label>Login</ion-label>
@@ -27,3 +27,4 @@
   </ion-segment>
 
 </ion-content>
+

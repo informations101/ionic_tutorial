@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
  
 const TOKEN_KEY = 'user-access-token';
  
@@ -13,7 +14,7 @@ export class AuthService {
   user: Observable<any>;
   private authState = new BehaviorSubject(null);
  
-  constructor(private router: Router, private storage: Storage) {
+  constructor(private router: Router, private storage: Storage,private alertCtrl:AlertController) {
     this.loadUser();
  
     // Filter out null values which is first behaviour Subject value
@@ -39,9 +40,11 @@ export class AuthService {
     let user = null;
  
     if (email === 'admin' && pw === 'admin') {
-      user = { email, role: 'ADMIN' };
+      user = { email,pw, role: 'ADMIN' };
     } else if (email === 'user' && pw === 'user') {
-      user = { email, role: 'USER' };
+      user = { email,pw, role: 'USER' };
+    }else{
+      this.showAlert();
     }
  
     this.authState.next(user);
@@ -57,5 +60,13 @@ export class AuthService {
     await this.storage.set(TOKEN_KEY, null);
     this.authState.next(null);
     this.router.navigateByUrl('/login');
+  }
+  async showAlert() {
+    let alert = await this.alertCtrl.create({
+      header: 'Warning Infomation',
+      message: 'Please check your information again!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }
