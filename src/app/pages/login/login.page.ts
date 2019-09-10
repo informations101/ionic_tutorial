@@ -20,7 +20,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   backHome() {
-    console.log('backhome')
     this.navCtrl.navigateBack('/');
   }
 

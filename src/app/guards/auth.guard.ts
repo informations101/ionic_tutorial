@@ -36,7 +36,7 @@ export class AuthGuard implements CanActivate {
   async showAlert() {
     let alert = await this.alertCtrl.create({
       header: 'Unauthorized',
-      message: 'You are not authorized to vist that page!',
+      message: 'You are not authorized to visit that page!',
       buttons: ['OK']
     });
     alert.present();
