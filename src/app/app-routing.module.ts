@@ -11,8 +11,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   {
-      path: 'admin-dashboard',
-      loadChildren: './pages/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',},
+    path: 'admin-dashboard',
+    loadChildren: './pages/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
+  },
   // { path: 'crud-storage', loadChildren: './pages/crud-storage/crud-storage.module#CrudStoragePageModule' },
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
@@ -39,7 +40,14 @@ const routes: Routes = [
     data: {
       role: 'USER'
     }
-  },  { path: 'crud-user', loadChildren: './pages/crud-user/crud-user.module#CrudUserPageModule' }
+  },
+  {
+    path: 'crud-user', loadChildren: './pages/crud-user/crud-user.module#CrudUserPageModule',
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  }
 
 ];
 

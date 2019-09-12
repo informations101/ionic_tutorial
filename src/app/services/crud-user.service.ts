@@ -6,7 +6,7 @@ export interface User {
   password: string,
   role: string,
   status: string,
-  modified:number
+  modified: number
 }
 const USERS_KEY = 'user_key'
 @Injectable({
@@ -49,18 +49,18 @@ export class CrudUserService {
       return this.storage.set(USERS_KEY, newUser)
     }
   }
-  async deleteUser(id:number):Promise<User>{
-    const users=await this.storage.get(USERS_KEY)
-    if(!users||users.length===0){
+  async deleteUser(id: number): Promise<User> {
+    const users = await this.storage.get(USERS_KEY)
+    if (!users || users.length === 0) {
       return null
-    }else{
-      let toKeep:User[]=[]
-      for(let i of users){
-        if(i.id!==id){
+    } else {
+      let toKeep: User[] = []
+      for (let i of users) {
+        if (i.id !== id) {
           toKeep.push(i)
         }
       }
-      return this.storage.set(USERS_KEY,toKeep)
+      return this.storage.set(USERS_KEY, toKeep)
     }
   }
 }

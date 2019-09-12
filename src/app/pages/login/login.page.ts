@@ -2,6 +2,7 @@ import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,13 @@ export class LoginPage implements OnInit {
     pw: ''
   };
 
-  constructor(private auth: AuthService, private router: Router, private navCtrl: NavController) {
-  }
+  constructor(private auth: AuthService, private router: Router, private navCtrl: NavController,private location:Location) {
 
+  }
+  previousRoute: string;
   ngOnInit() {
+    // this.previousRoute=this.location.back();
+    // console.log(this.location.back())
   }
   backHome() {
     this.navCtrl.navigateBack('/');
@@ -27,9 +31,11 @@ export class LoginPage implements OnInit {
     this.auth.signIn(this.user).subscribe(user => {
       let role = user['role'];
       if (role == 'USER') {
-        this.router.navigateByUrl('/user-dashboard');
+        this.location.back()
+        // this.router.navigateByUrl(this.previousRoute);
       } else if (role == 'ADMIN') {
-        this.router.navigateByUrl('/crud-storage');
+        this.location.back()
+        // this.router.navigateByUrl(this.previousRoute);
       }
     });
   }
