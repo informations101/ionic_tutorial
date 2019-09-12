@@ -69,6 +69,7 @@ export class CrudStoragePage implements OnInit {
 
     this.storageService.getItems().then(items => {
       this.items = items;
+      sortByKey(items, 'modified')
     });
     this.data = '1';
     await loading.dismiss();
@@ -77,7 +78,6 @@ export class CrudStoragePage implements OnInit {
   // READ ONE ITEM
 
   readOneItem(item: Item) {
-
     this.newItem.id = item.id;
     this.newItem.name = item.name;
     this.newItem.code = item.code;
@@ -137,3 +137,16 @@ export class CrudStoragePage implements OnInit {
   }
 
 }
+function sortByKey(array: Item[], key: string) {
+  return array.sort(function (a: { [x: string]: any; }, b: { [x: string]: any; }) {
+    var x = a[key];
+    var y = b[key];
+    return ((x > y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+  // function sortByKey(array, key) {
+  //   return array.sort(function(a, b) {
+  //       var x = a[key]; var y = b[key];
+  //       return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  //   });
+  //   }

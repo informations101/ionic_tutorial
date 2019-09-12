@@ -39,7 +39,8 @@ const routes: Routes = [
     data: {
       role: 'USER'
     }
-  }
+  },  { path: 'crud-user', loadChildren: './pages/crud-user/crud-user.module#CrudUserPageModule' }
+
 ];
 
 @NgModule({

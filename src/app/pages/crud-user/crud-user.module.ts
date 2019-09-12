@@ -1,17 +1,16 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-import { ComponentsModule } from '../components/components.module';
+import { CrudUserPage } from './crud-user.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: CrudUserPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [CrudUserPage]
 })
-export class HomePageModule {}
+export class CrudUserPageModule {}

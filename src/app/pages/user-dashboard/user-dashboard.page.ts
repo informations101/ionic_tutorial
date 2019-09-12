@@ -14,7 +14,7 @@ export class UserDashboardPage {
     this.loadItems();
   }
 
-  data: any;
+  _data: any;
   ionViewWillEnter() {
     // const loading = await this.loadCtrl.create({
     //   message: 'Loading data ...',
@@ -38,7 +38,7 @@ export class UserDashboardPage {
     this.storageService.getItems().then(items => {
       this.items = items;
     });
-    this.data = '1';
+    this._data = '1';
     await loading.dismiss();
   }
 }
