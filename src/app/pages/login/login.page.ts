@@ -27,8 +27,8 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateBack('/');
   }
 
-  signIn() {
-    this.auth.signIn(this.user).subscribe(user => {
+  async signIn() {
+    (await this.auth.signIn(this.user)).subscribe(user => {
       let role = user['role'];
       if (role == 'USER') {
         this.location.back()

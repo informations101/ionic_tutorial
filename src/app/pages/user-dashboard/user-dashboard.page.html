@@ -1,6 +1,9 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
       <ion-button (click)="signOut()">
         <ion-icon name="log-out"></ion-icon>
       </ion-button>
@@ -10,7 +13,25 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="data">
+
+  <div *ngIf="_data">
+    <ion-list-header color='secondary'>
+      <ion-label>User list</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let user of users">
+
+      <ion-item>
+        <ion-icon color="{{ user.status === 'enable' ? 'primary' : 'danger' }}"
+          name="{{ user.role === 'ADMIN' ? 'person-add' : 'person' }}" slot="start"></ion-icon>
+        <p>{{ user.username }}</p>
+        <p slot="end">{{ user.modified | date:'short'}}</p>
+      </ion-item>
+    </ion-item-sliding>
+    <br>
+    <ion-list-header color='secondary'>
+      <ion-label>Icon list</ion-label>
+    </ion-list-header>
     <ion-item-sliding *ngFor="let item of items">
 
       <ion-item>
@@ -18,19 +39,11 @@
         <label color="secondary">{{ item.name }}</label>
         <p slot="end">{{ item.modified | date:'short'}}</p>
       </ion-item>
-
-      <!-- <ion-item-options side="end">
-      <ion-item-option color="secondary" (click)="updateItem(item)">
-        <ion-icon name="settings"></ion-icon>
-      </ion-item-option>
-      <ion-item-option color="danger" (click)="deleteItem(item)">
-        <ion-icon name="trash"></ion-icon>
-      </ion-item-option>
-    </ion-item-options> -->
     </ion-item-sliding>
+    <br>
   </div>
   <!-- Skeleton screen -->
-  <div *ngIf="!data">
+  <div *ngIf="!_data">
     <ion-list>
       <ion-list-header>
         <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>

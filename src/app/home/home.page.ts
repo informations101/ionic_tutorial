@@ -16,27 +16,13 @@ export class HomePage implements OnInit {
 
   }
   crudUser() {
-    console.log(1111111);
-    
-    // this.navCtrl.navigateForward('login');
-    // this.navCtrl.navigateForward('crud-user');
-    // if(this.auth.loadUser){
-      
-    //   console.log('user')
-      this.route.navigateByUrl('crud-user')
-    // }else{
-    //   this.navCtrl.navigateForward('login');
-    // }
+    this.navCtrl.navigateForward('crud-user');
   }
   crudPage() {
-    if(this.auth.loadUser){
-      console.log('user')
-      this.route.navigateByUrl('crud-storage')
-    }else{
-      this.navCtrl.navigateForward('login');
-    }
-    // this.navCtrl.navigateForward('login');
-    // this.navCtrl.navigateForward('crud-storage');
+    this.navCtrl.navigateForward('crud-storage');
+  }
+  dataDashboard(){
+    this.navCtrl.navigateForward('user-dashboard');
   }
   ngOnInit() {
 

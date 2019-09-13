@@ -59,7 +59,7 @@
       <ion-icon name="sync"></ion-icon>
       <ion-label>Update</ion-label>
     </ion-segment-button>
-    <ion-segment-button layout="icon-bottom" (click)="clearItem(newItem)">
+    <ion-segment-button layout="icon-bottom" (click)="clearUser(newUser)">
       <ion-icon name="brush"></ion-icon>
       <ion-label>Clear</ion-label>
     </ion-segment-button>
@@ -85,7 +85,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="secondary" (click)="updateUser(user)">
+        <ion-item-option color="secondary" (click)="updateOneUser(user)">
           <ion-icon name="settings"></ion-icon>
         </ion-item-option>
         <ion-item-option color="danger" (click)="deleteUser(user)">

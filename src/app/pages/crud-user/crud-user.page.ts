@@ -25,13 +25,13 @@ export class CrudUserPage implements OnInit {
     this.auth.signOut();
   }
   // CREATE
-  addUser() {
+  async addUser() {
     this.newUser.modified = Date.now();
     this.newUser.id = Date.now();
-    this.userSerive.addUser(this.newUser).then(user => {
+    await this.userSerive.addUser(this.newUser).then(async user => {
       this.newUser = <User>{}
-      this.showToast('user added!!!')
-      this.loadUser()
+      await this.showToast('user added!!!')
+      await this.loadUser()
     })
   }
   // READ ONE USER
@@ -42,20 +42,34 @@ export class CrudUserPage implements OnInit {
     this.newUser.role = user.role
     this.newUser.status = user.status
   }
+  // CLEAR USER
+  clearUser(user:User){
+    if (!user.id) {
+      this.showToast('no data to clear');
+      this.newUser = <User>{};
+    } else {
+      this.showToast('your data\'s clear');
+      this.newUser= <User>{};
+    }
+  }
   // READ 
-  loadUser() {
-    this.userSerive.getUser().then(users => {
+  async loadUser() {
+    const loading = await this.loadCtrl.create({
+      message: 'Loading data ...',
+    });
+    await loading.present();
+    await this.userSerive.getUser().then(users => {
       this.users = sortByKey(users, 'modified')
     })
+    await loading.dismiss();
   }
   // UPDATE
-  updateOneUser(user: User) {
-    console.log(user)
+  async updateOneUser(user: User) {
     if (!user.id) {
       this.showToast('no user update!');
     } else {
       user.modified = Date.now()
-      this.userSerive.updateUser(user).then(user => {
+      await this.userSerive.updateUser(user).then(user => {
         this.newUser = <User>{}
         this.showToast('Item updated!');
         this.loadUser()
@@ -63,12 +77,11 @@ export class CrudUserPage implements OnInit {
     }
   }
   // DELETE USER FUNCTION
-  deleteUser(user: User) {
-    console.log(user)
+  async deleteUser(user: User) {
     if (!user.id) {
       this.showToast('no user removed!');
     } else {
-      this.userSerive.deleteUser(user.id).then(user => {
+      await this.userSerive.deleteUser(user.id).then(user => {
         this.newUser = <User>{}
         this.showToast('user removed!');
         this.loadUser()

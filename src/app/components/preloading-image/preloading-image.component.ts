@@ -31,7 +31,7 @@ export class PreloadingImageComponent implements OnChanges {
     this._renderer.setStyle(this._elementRef.nativeElement, 'padding', '0px 0px ' + ratio_height + ' 0px');
     this._update();
   }
-  
+
   _update() {
     this._loaded(false);
   }

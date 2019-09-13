@@ -1,8 +1,13 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Ionic Auth</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +16,7 @@
 
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input type="email"  [(ngModel)]="user.email"></ion-input>
+    <ion-input type="text" [(ngModel)]="user.username"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -25,9 +30,8 @@
     </ion-segment-button>
     <ion-segment-button (click)='backHome()' layout="icon-bottom">
       <ion-icon name="home"></ion-icon>
-      <ion-label>Item Two</ion-label>
+      <ion-label>Home</ion-label>
     </ion-segment-button>
   </ion-segment>
 
 </ion-content>
-
