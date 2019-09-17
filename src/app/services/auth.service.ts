@@ -7,7 +7,6 @@ import { filter } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
 
-const USERS_KEY = 'user_key'
 const TOKEN_KEY = 'user-access-token';
 @Injectable({
   providedIn: 'root'
@@ -41,19 +40,20 @@ export class AuthService {
     let username = credentials.username;
     let pw = credentials.pw;
     let user = null;
-    await this.userService.getUserByCredential(credentials.username, credentials.pw).then(async data => {
+    const data = await this.userService.getUserByCredential(credentials.username, credentials.pw);
+    if (data) {
       if (data.length) {
         if (data[0].role == "ADMIN") {
           user = { username, pw, role: 'ADMIN' };
-        } else if (data[0].role == "USESR") {
+        } else if (data[0].role == "USER") {
           user = { username, pw, role: 'USER' };
         }
-      } else if (username === 'admin' && pw === 'admin') {
-        user = { username, pw, role: 'ADMIN' };
       } else {
         this.showAlert();
       }
-    })
+    } else if (username === 'admin' && pw === 'admin') {
+      user = { username, pw, role: 'ADMIN' };
+    }
 
     // if (email === 'admin' && pw === 'admin') {
     //   user = { email, pw, role: 'ADMIN' };

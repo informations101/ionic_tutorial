@@ -12,9 +12,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
 
-  <ion-item>
+  <login></login>
+  <!-- <ion-item>
     <ion-label position="floating">Email</ion-label>
     <ion-input type="text" [(ngModel)]="user.username"></ion-input>
   </ion-item>
@@ -23,7 +24,7 @@
     <ion-label position="floating">Password</ion-label>
     <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
   </ion-item>
-  <ion-segment padding>
+  <ion-segment class="ion-padding">
     <ion-segment-button checked (click)="signIn()" layout="icon-bottom">
       <ion-icon name="log-in"></ion-icon>
       <ion-label>Login</ion-label>
@@ -32,6 +33,6 @@
       <ion-icon name="home"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-segment-button>
-  </ion-segment>
+  </ion-segment> -->
 
 </ion-content>

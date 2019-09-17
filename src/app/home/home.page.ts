@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 
 export class HomePage implements OnInit {
 
-  constructor(private navCtrl: NavController, private loadCtrl: LoadingController,private route:Router,private auth:AuthService) {
+  constructor(private navCtrl: NavController, private loadCtrl: LoadingController, private route: Router, private auth: AuthService) {
 
   }
   crudUser() {
@@ -21,20 +21,23 @@ export class HomePage implements OnInit {
   crudPage() {
     this.navCtrl.navigateForward('crud-storage');
   }
-  dataDashboard(){
+  dataDashboard() {
     this.navCtrl.navigateForward('user-dashboard');
   }
   ngOnInit() {
-
+    console.log('ngOnInit')
+  }
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter')
   }
 
-  async signOut() { 
+  async signOut() {
     const loading = await this.loadCtrl.create({
       message: 'Singing out ...',
-      spinner:'crescent',
+      spinner: 'crescent',
     });
     await loading.present();
-    this.auth.signOut();
+    await this.auth.signOut();
     await loading.dismiss();
   }
 

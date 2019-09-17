@@ -2,18 +2,23 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { PreloadingImageComponent } from './preloading-image/preloading-image.component';
 import { NgModule } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule.forRoot(),
+    FormsModule,
+    IonicModule,
   ],
   declarations: [
-    PreloadingImageComponent
+    PreloadingImageComponent,
+    LoginComponent
   ],
   exports: [
-    PreloadingImageComponent
+    PreloadingImageComponent,
+    LoginComponent
   ],
   entryComponents: [],
 })

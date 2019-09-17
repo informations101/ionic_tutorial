@@ -38,7 +38,7 @@
 
     <ion-button expand="full" (click)="addItem()">Add Icon!</ion-button>
   </div> -->
-  <ion-segment padding>
+  <ion-segment class="ion-padding">
     <ion-segment-button (click)="addItem()" layout="icon-bottom">
       <ion-icon name="add"></ion-icon>
       <ion-label>Add Item</ion-label>
@@ -56,6 +56,8 @@
       <ion-label>Delete</ion-label>
     </ion-segment-button>
   </ion-segment>
+  <ion-searchbar placeholder="Filter Icon" inputmode="text" type="decimal" (ionChange)="onSearchChange($event)"
+    [debounce]="250"></ion-searchbar>
   <ion-list #mylist>
 
     <ion-list-header>

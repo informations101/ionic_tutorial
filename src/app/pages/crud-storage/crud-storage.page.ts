@@ -60,6 +60,7 @@ export class CrudStoragePage implements OnInit {
       this.newItem = <Item>{};
     }
   }
+
   // READ
   async loadItems() {
     const loading = await this.loadCtrl.create({
@@ -67,10 +68,9 @@ export class CrudStoragePage implements OnInit {
     });
     await loading.present();
 
-    this.storageService.getItems().then(items => {
-      this.items = items;
-      sortByKey(items, 'modified')
-    });
+    this.items = await this.storageService.getItems()
+    // this.items = items;
+    sortByKey(this.items, 'modified')
     this.data = '1';
     await loading.dismiss();
   }
