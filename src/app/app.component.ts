@@ -1,3 +1,4 @@
+import { LanguageService } from './services/language.service';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -13,7 +14,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private languageService: LanguageService,
   ) {
     this.initializeApp();
   }
@@ -22,6 +24,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.languageService.setInitialAppLanguage()
     });
   }
 }

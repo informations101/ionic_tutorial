@@ -8,7 +8,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home-desgin', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   {
     path: 'admin-dashboard',
@@ -47,7 +47,9 @@ const routes: Routes = [
     data: {
       role: 'ADMIN'
     }
-  }
+  },
+  { path: 'home-desgin', loadChildren: './pages/home-desgin/home-desgin.module#HomeDesginPageModule' }
+
 
 ];
 
