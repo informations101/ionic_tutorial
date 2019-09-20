@@ -3,6 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="signOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
       Ionic Storage CRUD
     </ion-title>
@@ -33,7 +38,7 @@
 
     <ion-button expand="full" (click)="addItem()">Add Icon!</ion-button>
   </div> -->
-  <ion-segment padding>
+  <ion-segment class="ion-padding">
     <ion-segment-button (click)="addItem()" layout="icon-bottom">
       <ion-icon name="add"></ion-icon>
       <ion-label>Add Item</ion-label>
@@ -42,15 +47,16 @@
       <ion-icon name="sync"></ion-icon>
       <ion-label>Update</ion-label>
     </ion-segment-button>
-    <ion-segment-button layout="icon-bottom" (click)="clearItem(newItem)"> 
-        <ion-icon name="brush"></ion-icon>
-        <ion-label>Clear</ion-label>
-      </ion-segment-button>
+    <ion-segment-button layout="icon-bottom" (click)="clearItem(newItem)">
+      <ion-icon name="brush"></ion-icon>
+      <ion-label>Clear</ion-label>
+    </ion-segment-button>
     <ion-segment-button (click)="deleteItem(newItem)" layout="icon-bottom">
-      <ion-icon name="trash"  color="danger" ></ion-icon>
+      <ion-icon name="trash" color="danger"></ion-icon>
       <ion-label>Delete</ion-label>
     </ion-segment-button>
   </ion-segment>
+
   <ion-list #mylist>
 
     <ion-list-header>

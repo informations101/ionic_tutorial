@@ -1,0 +1,12 @@
+{
+    "HOME": {
+        "title": "ទំព័រដើម",
+        "greeting": "Hey {{name}}! Welcome to the Ionic Academy! translate",
+        "withcode": "<br>You are <b>epic</b>!",
+        "btn": "Show Alert"
+    },
+    "ALERT": {
+        "header": "Error",
+        "msg": "There was a problem with your operation"
+    }
+}
