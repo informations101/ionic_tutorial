@@ -1,0 +1,33 @@
+page-home {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    @media screen and (max-width: 600px) {
+      & {
+        flex-wrap: wrap;
+      }
+      .progress {
+        height: unset;
+      }
+    }
+
+    .progress {
+      height: 100%;
+    }
+  }
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+ion-content.background{
+    --background: url(../../../assets/img/bg/bg_m.jpg) 0 0/100% 100% no-repeat;
+}

@@ -25,10 +25,13 @@ export class HomePage implements OnInit {
     this.navCtrl.navigateForward('user-dashboard');
   }
   ngOnInit() {
-    console.log('ngOnInit')
+    // console.log('ngOnInit')
   }
   ionViewWillEnter() {
-    console.log('ionViewWillEnter')
+    // console.log('ionViewWillEnter')
+  }
+  changeLanguage() {
+    this.navCtrl.navigateForward('home-desgin');
   }
 
   async signOut() {

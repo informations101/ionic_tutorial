@@ -18,6 +18,7 @@ export class MultiLanguageComponent implements OnInit {
   }
   select(lng) {
     this.languageService.setLanguage(lng);
-    // this.popoverCtrl.dismiss();
+    this.selected = this.languageService.selected;
+    this.languages = this.languageService.getLanguages();
   }
 }

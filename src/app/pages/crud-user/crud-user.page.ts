@@ -43,13 +43,13 @@ export class CrudUserPage implements OnInit {
     this.newUser.status = user.status
   }
   // CLEAR USER
-  clearUser(user:User){
+  clearUser(user: User) {
     if (!user.id) {
       this.showToast('no data to clear');
       this.newUser = <User>{};
     } else {
       this.showToast('your data\'s clear');
-      this.newUser= <User>{};
+      this.newUser = <User>{};
     }
   }
   // READ 
@@ -58,9 +58,10 @@ export class CrudUserPage implements OnInit {
       message: 'Loading data ...',
     });
     await loading.present();
-    await this.userSerive.getUser().then(users => {
+    const users = await this.userSerive.getUser()
+    if (users != null) {
       this.users = sortByKey(users, 'modified')
-    })
+    }
     await loading.dismiss();
   }
   // UPDATE

@@ -7,7 +7,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-desgin.page.scss'],
 })
 export class HomeDesginPage {
-  params = {
-    name: 'man'
-  };
+
 }

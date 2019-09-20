@@ -26,23 +26,21 @@ export class LanguageService {
   }
 
   getLanguages() {
-    // console.log(this.selected)
-    // if (this.selected == "en") {
-    return [
-      { text: 'English', value: 'en', img: 'assets/img/en.png' },
-      { text: 'Khmer', value: 'kh', img: 'assets/img/kh.png' },
-    ];
-    // } else {
-    //   return [
-    //     { text: 'ភាសាអង់គ្លេស', value: 'en', img: 'assets/img/en.png' },
-    //     { text: 'ភាសាខ្មែរ', value: 'kh', img: 'assets/img/kh.png' },
-    //   ];
-    // }
+    if (this.selected == "en") {
+      return [
+        { text: 'English', value: 'en', img: 'assets/img/en.png' },
+        { text: 'Khmer', value: 'kh', img: 'assets/img/kh.png' },
+      ];
+    } else {
+      return [
+        { text: 'ភាសាអង់គ្លេស', value: 'en', img: 'assets/img/en.png' },
+        { text: 'ភាសាខ្មែរ', value: 'kh', img: 'assets/img/kh.png' },
+      ];
+    }
   }
 
   setLanguage(lng) {
-    // this.selected = lng;
-    // this.getLanguages()
+    this.selected = lng;
     this.translate.use(lng);
     this.storage.set(LNG_KEY, lng);
   }

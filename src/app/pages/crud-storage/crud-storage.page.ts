@@ -69,8 +69,9 @@ export class CrudStoragePage implements OnInit {
     await loading.present();
 
     this.items = await this.storageService.getItems()
-    // this.items = items;
-    sortByKey(this.items, 'modified')
+    if (this.items != null) {
+      sortByKey(this.items, 'modified')
+    }
     this.data = '1';
     await loading.dismiss();
   }
