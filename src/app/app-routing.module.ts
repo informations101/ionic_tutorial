@@ -36,7 +36,10 @@ const routes: Routes = [
   },
   { path: 'home-desgin', loadChildren: './pages/home-desgin/home-desgin.module#HomeDesginPageModule' },
   { path: 'loading-screen', loadChildren: './pages/loading-screen/loading-screen.module#LoadingScreenPageModule' },
-  { path: 'even-screen', loadChildren: './pages/even-screen/even-screen.module#EvenScreenPageModule' }
+  { path: 'even-screen', loadChildren: './pages/even-screen/even-screen.module#EvenScreenPageModule' },
+  { path: 'developers', loadChildren: './pages/developers/developers.module#DevelopersPageModule' },
+  { path: 'developers/:id', loadChildren: './pages/developer/developer.module#DeveloperPageModule' }
+
 
 
 

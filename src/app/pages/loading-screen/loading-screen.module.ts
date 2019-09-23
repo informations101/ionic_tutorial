@@ -32,7 +32,7 @@ const routes: Routes = [
       outerStrokeColor: '#808080',
       innerStrokeWidth: 4,
       innerStrokeColor: '#e7e8ea',
-      animationDuration: 600,
+      animationDuration: 100,
       animation: true,
       startFromZero: false,
       responsive: true,

@@ -1,4 +1,4 @@
-import { NavController, Platform } from '@ionic/angular';
+import { NavController, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -18,7 +18,8 @@ export class LoadingScreenPage implements OnInit {
   constructor(private navCtrl: NavController,
     private statusBar: StatusBar,
     private platform: Platform,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private toastController: ToastController
   ) {
 
   }
@@ -37,7 +38,7 @@ export class LoadingScreenPage implements OnInit {
     this.progressText = "Please wait . . .";
     this.timerHandler = window.setInterval(() => {
       this.progress += Math.random() * 5;
-      this.progressbar += (Math.random() * 5) / 100;
+      this.progressbar = this.progress / 100;
       if (this.progress >= 50) {
         this.progressText = "Please stay tuned";
       }
@@ -47,23 +48,82 @@ export class LoadingScreenPage implements OnInit {
         this.stop();
         this.toNextPage();
       }
-    }, 600);
+    }, 100);
   }
-  ionViewDidEnter() {
+  // ionViewDidEnter() {
+  //   this.platform.ready().then(() => {
+  //     this.statusBar.overlaysWebView(true);
+  //     if (window.statusbar) {
+  //       this.statusBar.hide();
+  //     }
+  //     this.statusBar.backgroundColorByHexString("#ffffff");
+  //     // this.statusBar.styleDefault();
+  //     this.splashScreen.hide();
+  //   });
+  //   this.start();
+  // }
+  toNextPage() {
+    this.navCtrl.navigateBack('home');
+  }
+  async ngOnInit() {
+    const toast = await this.toastController.create({
+      message: 'ngOnInit',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ngOnInit')
+  }
+
+  async ngOnDestroy(): Promise<void> {
+    const toast = await this.toastController.create({
+      message: 'ngOnDestroy',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ngOnDestroy')
+  }
+  async ionViewWillEnter() {
+    const toast = await this.toastController.create({
+      message: 'ionViewWillEnter',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ionViewWillEnter')
+  }
+  async ionViewDidEnter() {
+
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
       if (window.statusbar) {
         this.statusBar.hide();
       }
-      this.statusBar.backgroundColorByHexString("#ffffff");
+      this.statusBar.backgroundColorByHexString("#a88d42");
       // this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
     this.start();
+
+    const toast = await this.toastController.create({
+      message: 'ionViewDidEnter',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ionViewDidEnter')
   }
-  ngOnInit() {
+  async ionViewWillLeave() {
+    const toast = await this.toastController.create({
+      message: 'ionViewWillLeave',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ionViewWillLeave')
   }
-  toNextPage() {
-    this.navCtrl.navigateForward('home');
+  async ionViewDidLeave() {
+    const toast = await this.toastController.create({
+      message: 'ionViewDidLeave',
+      duration: 2000
+    });
+    toast.present();
+    console.log('ionViewDidLeave')
   }
 }

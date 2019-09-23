@@ -1,12 +1,11 @@
 <ion-content class="background">
-  <div class="flex-container centered">
+  <div class="centered">
+    <ion-progress-bar [value]="progressbar"></ion-progress-bar>
     <div class="flex progress">
       <circle-progress [percent]="progress" [showSubtitle]="true" [subtitle]="progressText">
       </circle-progress>
     </div>
-    <ion-progress-bar [value]="progressbar"></ion-progress-bar>
+    <progress-bar [progress]="progress" [color]="'green'"></progress-bar>
   </div>
 </ion-content>
-<!-- <ion-footer>
-  <progress-bar [progress]="progress" [color]="'#488aff'"></progress-bar>
-</ion-footer> -->
+<ion-footer></ion-footer>

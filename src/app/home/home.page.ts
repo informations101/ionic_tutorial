@@ -1,3 +1,4 @@
+import { LoadingScreenPage } from './../pages/loading-screen/loading-screen.page';
 import { HomeDesginPage } from './../pages/home-desgin/home-desgin.page';
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ModalController } from '@ionic/angular';
@@ -33,6 +34,9 @@ export class HomePage implements OnInit {
   ngOnInit() {
     // console.log('ngOnInit')
   }
+  sqliteCRUD() {
+    this.navCtrl.navigateForward('developers')
+  }
   checkEvenScreen() {
     this.navCtrl.navigateForward('even-screen')
   }
@@ -56,5 +60,7 @@ export class HomePage implements OnInit {
     await this.auth.signOut();
     await loading.dismiss();
   }
-
+  loadingScreenPage() {
+    this.navCtrl.navigateForward('loading-screen')
+  }
 } 

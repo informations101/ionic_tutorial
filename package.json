@@ -25,6 +25,7 @@
     "@ionic-native/sqlite": "^5.14.0",
     "@ionic-native/sqlite-porter": "^5.14.0",
     "@ionic-native/status-bar": "^5.14.0",
+    "@ionic-native/toast": "^5.14.0",
     "@ionic/angular": "^4.9.1",
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^11.0.1",
@@ -33,9 +34,11 @@
     "angular-svg-round-progressbar": "^3.0.1",
     "cordova-android": "8.0.0",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-x-toast": "^2.7.2",
     "cordova-sqlite-storage": "^3.3.0",
+    "cordova-windows": "^7.0.0",
     "core-js": "^2.5.4",
-    "ng-circle-progress": "^1.4.0",
+    "ng-circle-progress": "^1.5.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "uk.co.workingedge.cordova.plugin.sqliteporter": "^1.1.1",
@@ -51,6 +54,7 @@
     "@angular/compiler-cli": "~8.1.2",
     "@angular/language-service": "~8.1.2",
     "@ionic/angular-toolkit": "~2.0.0",
+    "@ionic/lab": "2.0.11",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -85,11 +89,13 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-x-toast": {}
     },
     "platforms": [
       "browser",
-      "android"
+      "android",
+      "windows"
     ]
   }
 }

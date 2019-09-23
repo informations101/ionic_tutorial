@@ -1,8 +1,8 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>{{ 'HOME.title' | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content style="font-family: 'Khmer', cursive;">
   <preloading-image [ratio]="{w: 2, h: 0.5}"
@@ -12,8 +12,8 @@
   <ion-button expand="full" (click)="crudPage()">{{ 'HOME.crudIcon' | translate }}</ion-button>
   <ion-button expand="full" (click)="crudUser()">{{ 'HOME.crudUser' | translate }}</ion-button>
   <ion-button expand="full" (click)="dataDashboard()">{{ 'HOME.dashboard' | translate }}</ion-button>
-  <ion-button expand="full" (click)="checkEvenScreen()">{{ 'HOME.evenScreen' | translate }}
-  </ion-button>
+  <ion-button expand="full" (click)="loadingScreenPage()">{{ 'HOME.loading' | translate }}</ion-button>
+  <ion-button expand="full" (click)="sqliteCRUD()">{{ 'HOME.sqlite' | translate }}</ion-button>
   <ion-button expand="full" (click)="signOut()">{{ 'HOME.log' | translate }}</ion-button>
   <!-- <login></login> -->
 </ion-content>

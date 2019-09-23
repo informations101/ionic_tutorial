@@ -2,11 +2,12 @@
     "HOME": {
         "title": "Home",
         "changeLanguage": "Change Language",
-        "crudIcon": "CRUD Icon",
-        "crudUser": "CRUD User",
+        "crudIcon": "CRUD Icon (storage)",
+        "crudUser": "CRUD User (storage)",
         "dashboard": "Dashboard",
-        "evenScreen": "Even Screen",
-        "log": "Logout & Register"
+        "log": "Logout & Register",
+        "sqlite": "CRUD SQLite",
+        "loading": "Even Screen"
     },
     "ALERT": {
         "header": "Error",
