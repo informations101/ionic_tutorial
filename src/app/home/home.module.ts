@@ -1,3 +1,5 @@
+import { HomeDesginPage } from './../pages/home-desgin/home-desgin.page';
+import { TranslateModule } from '@ngx-translate/core';
 import { PreloadingImageComponent } from './../components/preloading-image/preloading-image.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,7 +24,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule
   ],
   declarations: [HomePage]
 })

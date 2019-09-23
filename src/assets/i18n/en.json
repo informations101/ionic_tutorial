@@ -1,9 +1,12 @@
 {
     "HOME": {
         "title": "Home",
-        "greeting": "Hey {{name}}! Welcome to the Ionic Academy translate!",
-        "withcode": "<br>You are <b>epic</b>!",
-        "btn": "Show Alert"
+        "changeLanguage": "Change Language",
+        "crudIcon": "CRUD Icon",
+        "crudUser": "CRUD User",
+        "dashboard": "Dashboard",
+        "evenScreen": "Even Screen",
+        "log": "Logout & Register"
     },
     "ALERT": {
         "header": "Error",

@@ -1,9 +1,12 @@
 {
     "HOME": {
         "title": "ទំព័រដើម",
-        "greeting": "Hey {{name}}! Welcome to the Ionic Academy! translate",
-        "withcode": "<br>You are <b>epic</b>!",
-        "btn": "Show Alert"
+        "changeLanguage": "ប្តូរភាសា",
+        "crudIcon": "រៀបចំអាយខន",
+        "crudUser": "រៀបចំអ្នកប្រើប្រាស់",
+        "dashboard": "មើលតារាង",
+        "evenScreen": "ដំណើរការនៃស្ក្រីន",
+        "log": "ចូលប្រើ ចុះឈ្មោះ"
     },
     "ALERT": {
         "header": "Error",

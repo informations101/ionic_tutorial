@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'loading-screen', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   {
     path: 'admin-dashboard',
@@ -35,7 +35,9 @@ const routes: Routes = [
     }
   },
   { path: 'home-desgin', loadChildren: './pages/home-desgin/home-desgin.module#HomeDesginPageModule' },
-  { path: 'loading-screen', loadChildren: './pages/loading-screen/loading-screen.module#LoadingScreenPageModule' }
+  { path: 'loading-screen', loadChildren: './pages/loading-screen/loading-screen.module#LoadingScreenPageModule' },
+  { path: 'even-screen', loadChildren: './pages/even-screen/even-screen.module#EvenScreenPageModule' }
+
 
 
 

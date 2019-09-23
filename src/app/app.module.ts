@@ -1,3 +1,4 @@
+import { HomeDesginPageModule } from './pages/home-desgin/home-desgin.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -31,7 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    // LanguagePopoverPageModule
+    HomeDesginPageModule
   ],
   providers: [
     StatusBar,

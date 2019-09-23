@@ -1,8 +1,11 @@
+import { HomeDesginPage } from './../pages/home-desgin/home-desgin.page';
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular';
+import { NavController, LoadingController, ModalController } from '@ionic/angular';
 import { PreloadingImageComponent } from '../components/preloading-image/preloading-image.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { myEnterAnimationModal } from '../animations/enter-modal';
+import { myLeaveAnimationModal } from '../animations/leave-modal';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,10 @@ import { AuthService } from '../services/auth.service';
 
 export class HomePage implements OnInit {
 
-  constructor(private navCtrl: NavController, private loadCtrl: LoadingController, private route: Router, private auth: AuthService) {
+  constructor(private navCtrl: NavController, private loadCtrl: LoadingController,
+    private route: Router, private auth: AuthService,
+    private modalCtrl: ModalController
+  ) {
 
   }
   crudUser() {
@@ -27,11 +33,18 @@ export class HomePage implements OnInit {
   ngOnInit() {
     // console.log('ngOnInit')
   }
-  ionViewWillEnter() {
-    // console.log('ionViewWillEnter')
+  checkEvenScreen() {
+    this.navCtrl.navigateForward('even-screen')
   }
   changeLanguage() {
-    this.navCtrl.navigateForward('home-desgin');
+    this.modalCtrl.create({
+      component: HomeDesginPage,
+      enterAnimation: myEnterAnimationModal,
+      leaveAnimation: myLeaveAnimationModal
+    }).then((modal) => {
+      modal.present();
+    });
+    // this.navCtrl.navigateForward('home-desgin');
   }
 
   async signOut() {

@@ -1,17 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ionic Tutorial Home</ion-title>
+    <ion-title>{{ 'HOME.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="font-family: 'Khmer', cursive;">
   <preloading-image [ratio]="{w: 2, h: 0.5}"
     [src]="'https://cdn.scotch.io/scotchy-uploads/2015/11/Ionic_Logo.svg_.png'">
   </preloading-image>
-  <ion-button expand="full" (click)="changeLanguage()">Change Language</ion-button>
-  <ion-button expand="full" (click)="crudPage()">CRUD Storage</ion-button>
-  <ion-button expand="full" (click)="crudUser()">CRUD User</ion-button>
-  <ion-button expand="full" (click)="dataDashboard()">Data Dashboard</ion-button>
-  <ion-button expand="full" (click)="signOut()">Logout & Register</ion-button>
+  <ion-button expand="full" (click)="changeLanguage()">{{ 'HOME.changeLanguage' | translate }}</ion-button>
+  <ion-button expand="full" (click)="crudPage()">{{ 'HOME.crudIcon' | translate }}</ion-button>
+  <ion-button expand="full" (click)="crudUser()">{{ 'HOME.crudUser' | translate }}</ion-button>
+  <ion-button expand="full" (click)="dataDashboard()">{{ 'HOME.dashboard' | translate }}</ion-button>
+  <ion-button expand="full" (click)="checkEvenScreen()">{{ 'HOME.evenScreen' | translate }}
+  </ion-button>
+  <ion-button expand="full" (click)="signOut()">{{ 'HOME.log' | translate }}</ion-button>
   <!-- <login></login> -->
 </ion-content>
